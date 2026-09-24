@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /content/
+Disallow: /tools/
+
+Sitemap: https://mediturne.com/sitemap.xml
