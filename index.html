@@ -177,7 +177,7 @@
       <p class="contact-mail"><a href="mailto:kontakt@mediturne.com">kontakt@mediturne.com</a></p>
       <p class="muted">Už mediturne používáte? <a class="link-strong" href="https://app.mediturne.com">Přihlaste se do aplikace</a></p>
     </div>
-    <form class="contact-form" id="contact-form" action="https://formspree.io/f/FORMSPREE_ID" method="POST" novalidate>
+    <form class="contact-form" id="contact-form" action="/api/contact" method="POST" novalidate>
       <div class="row2">
         <div class="field"><label for="f-name">Jméno</label><input id="f-name" name="jmeno" type="text" autocomplete="name" placeholder="MUDr. Jana Nováková" required></div>
         <div class="field"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="jana@nemocnice.cz" required></div>
@@ -188,7 +188,6 @@
       </div>
       <div class="field"><label for="f-msg">Zpráva</label><textarea id="f-msg" name="zprava" rows="5" placeholder="Jak dnes noční služby rozepisujete a co vás na tom nejvíc zdržuje…" required></textarea></div>
       <div class="hp" aria-hidden="true"><label for="f-gotcha">Toto pole nevyplňujte</label><input id="f-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
-      <input type="hidden" name="_subject" value="Nová zpráva z mediturne.com">
       <button class="btn btn-primary" type="submit">Odeslat</button>
       <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
       <p class="fine">Údaje použiju jen k odpovědi na vaši zprávu. Podrobnosti v <a href="/ochrana-osobnich-udaju">zásadách ochrany osobních údajů</a>.</p>

@@ -1,4 +1,4 @@
-// Sends the contact form to Formspree without leaving the page; without JS the form posts normally.
+// Sends the contact form to /api/contact without leaving the page; without JS the form posts normally.
 (function () {
   const form = document.getElementById("contact-form");
   if (!form) return;

@@ -13,11 +13,15 @@ PAGES = {
     "cookies.html": ("Cookies", "Jaké cookies používá web mediturne.com a aplikace mediturne."),
     "obchodni-podminky.html": ("Obchodní podmínky", "Obchodní podmínky služby mediturne."),
     "404.html": ("Stránka nenalezena", "Tahle stránka na mediturne.com neexistuje."),
+    "dekujeme.html": ("Zpráva odeslána", "Děkujeme za zprávu."),
 }
+# Utility pages nobody should find through a search engine.
+NOINDEX = {"404.html", "dekujeme.html"}
 
 for fname, (title, desc) in PAGES.items():
     body = open(os.path.join(ROOT, "content", fname), encoding="utf-8").read()
-    canonical = "" if fname == "404.html" else f'<link rel="canonical" href="https://mediturne.com/{fname[:-5]}">\n'
+    canonical = ('<meta name="robots" content="noindex">\n' if fname in NOINDEX
+                 else f'<link rel="canonical" href="https://mediturne.com/{fname[:-5]}">\n')
     html = f"""<!doctype html>
 <html lang="cs">
 <head>
