@@ -1,5 +1,5 @@
 // Cloudflare Pages Function: POST /api/contact.
-// Sends the contact form to our mailbox through Brevo (EU); nothing is stored on our side.
+// Sends the contact form to our mailbox through Brevo; nothing is stored on our side, Brevo keeps a sending log.
 // Environment: BREVO_API_KEY (secret), CONTACT_TO (kontakt@mediturne.com), CONTACT_FROM (sender verified in Brevo).
 
 const LIMITS = { jmeno: 120, email: 200, nemocnice_oddeleni: 200, pocet_lekaru: 6, zprava: 5000 };

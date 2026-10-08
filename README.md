@@ -24,7 +24,8 @@ python tools/build_pages.py
 ## Než web spustíš
 
 1. **Kontaktní formulář (Brevo).** Formulář posílá na `/api/contact` (`functions/api/contact.js`,
-   Cloudflare Pages Function). Ta zprávu nikam neukládá a přes Brevo (EU) ji doručí do schránky.
+   Cloudflare Pages Function). Ta zprávu nikam neukládá a přes Brevo ji doručí do schránky. Brevo si ale
+   o každém odeslání vede záznam (příjemce, předmět se jménem, Reply-To) a bez nastavení ho drží napořád.
    - Založ účet na brevo.com (Free: 300 e-mailů denně).
    - Senders, Domains & Dedicated IPs → Domains → přidej `mediturne.com` a ověř ji.
      Brevo nabídne automatické nastavení DNS v Cloudflare; jinak přidej jeho TXT (brevo-code),
@@ -34,8 +35,11 @@ python tools/build_pages.py
    - SMTP & API → API keys → vytvoř klíč jen pro tenhle web.
    - Cloudflare → projekt → Settings → Variables and Secrets (Production i Preview):
      `BREVO_API_KEY` jako **Secret**, `CONTACT_TO` = `kontakt@mediturne.com`, `CONTACT_FROM` = `web@mediturne.com`.
+   - Settings → Transactional emails → Retention rules: uchovávání záznamů 1 měsíc a náhledy neukládat.
+     Obě hodnoty pak doplň do zásad ochrany osobních údajů.
    - Smlouva o zpracování (DPA) je součástí podmínek Brevo, archivuj si ji z jejich stránky Legal.
-2. **Doplň placeholdery** v `content/` (hledej `[`): datum spuštění a doručovací adresa.
+2. **Doplň placeholdery** v `content/` (hledej `[`): datum spuštění, právní forma, IČO, doručovací
+   adresa, hosting aplikace a ceny.
    Pak `python tools/build_pages.py`.
 3. **Aplikace.** Tlačítko „Přihlásit se“ vede na `https://app.mediturne.com`. Pokud bude jinde, přepiš ho v `index.html`.
 
@@ -52,7 +56,8 @@ python tools/build_pages.py
    které blokuje CSP. Bot Fight Mode je v pořádku, jeho cookie je uvedená v zásadách cookies.
 5. Po nasazení zkontroluj v prohlížeči (DevTools):
    - záložka Network: žádný požadavek mimo mediturne.com,
-   - záložka Application → Cookies: žádná cookie,
+   - záložka Application → Cookies: nanejvýš cookies Cloudflare (`__cf_bm`, `cf_clearance`), které
+     Bot Fight Mode nastavuje i běžným návštěvníkům; jiná cookie tam být nesmí,
    - odeslání testovací zprávy formulářem.
 
 ## Obsah a tvrzení
