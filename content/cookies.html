@@ -28,13 +28,13 @@
 <div class="table-wrap"><table>
 <thead><tr><th>Název a druh</th><th>Účel</th><th>Doba platnosti</th></tr></thead>
 <tbody>
-<tr><td><code>nr_refresh</code><br>cookie</td><td>udržuje vás přihlášené: nese náhodný token, kterým si aplikace obnovuje krátkodobé přihlášení; skripty na stránce ji nepřečtou a prohlížeč ji posílá jen na adresy pro přihlášení</td><td>7 hodin od posledního obnovení, nejvýš 30 dní od přihlášení; smaže se odhlášením, zavřením prohlížeče ne</td></tr>
+<tr><td><code>nr_refresh</code><br>cookie</td><td>udržuje vás přihlášené: nese náhodný token, kterým si aplikace obnovuje krátkodobé přihlášení; skripty na stránce ji nepřečtou a prohlížeč ji posílá jen na adresy pro přihlášení</td><td>do zavření prohlížeče, smaže se i odhlášením; přihlášení, které nese, navíc vyprší 7 hodin od posledního obnovení a nejpozději 30 dní od přihlášení</td></tr>
 <tr><td><code>nurse-rostering.language</code><br>localStorage</td><td>pamatuje si jazyk, který jste si vybrali v profilu; uloží se, jen když jazyk sami přepnete</td><td>dokud nesmažete data webu v prohlížeči</td></tr>
 <tr><td><code>nurse-rostering.signed-out</code><br>localStorage</td><td>poznámka (hodnota „1“), že jste se v tomto prohlížeči odhlásili; podle ní aplikace při dalším spuštění dokončí odhlášení, kdyby ho server předtím nepotvrdil</td><td>smaže se, jakmile server odhlášení potvrdí, jinak nejpozději při dalším přihlášení</td></tr>
 <tr><td>položky knihovny MSAL<br>sessionStorage</td><td>jen při přihlášení účtem Microsoft: průběh přihlášení a tokeny od Microsoftu pro tuto aplikaci</td><td>do zavření panelu nebo okna; smažou se i odhlášením</td></tr>
 </tbody></table></div>
 <p>Krátkodobý přístupový token drží aplikace jen v paměti stránky a nikam ho neukládá.</p>
-<p>Všechny tyto položky jsou nezbytné k tomu, abyste se do aplikace přihlásili, zůstali přihlášení během práce, bezpečně se odhlásili a měli jazyk, který jste si vybrali. Proto je aplikace ukládá bez souhlasu podle výjimky v § 89 odst. 3. Cookie <code>nr_refresh</code> přetrvá i zavření prohlížeče, dokud nevyprší, proto se na sdíleném počítači vždy odhlaste.</p>
+<p>Všechny tyto položky jsou nezbytné k tomu, abyste se do aplikace přihlásili, zůstali přihlášení během práce, bezpečně se odhlásili a měli jazyk, který jste si vybrali. Proto je aplikace ukládá bez souhlasu podle výjimky v § 89 odst. 3. Cookie <code>nr_refresh</code> se smaže zavřením prohlížeče. Prohlížeč, který po spuštění obnovuje předchozí relaci, ji ale může ponechat, a dokud prohlížeč běží, zůstanete přihlášení i po zavření panelu. Na sdíleném počítači se proto vždy odhlaste.</p>
 <p>Přihlášení účtem Microsoft probíhá na stránkách Microsoftu, který si přitom ukládá vlastní cookies podle svých pravidel a nastavení vaší organizace.</p>
 <p>[POKUD APLIKACE POBĚŽÍ ZA SÍTÍ CLOUDFLARE S OCHRANOU PROTI ROBOTŮM, DOPLNIT, ŽE I ZDE MOHOU BÝT COOKIES CLOUDFLARE POPSANÉ VÝŠE.]</p>
 
