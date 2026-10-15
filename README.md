@@ -35,6 +35,12 @@ python tools/build_pages.py
    - SMTP & API → API keys → vytvoř klíč jen pro tenhle web.
    - Cloudflare → projekt → Settings → Variables and Secrets (Production i Preview):
      `BREVO_API_KEY` jako **Secret**, `CONTACT_TO` = `kontakt@mediturne.com`, `CONTACT_FROM` = `web@mediturne.com`.
+   - Formulář přijme jen požadavek s hlavičkou `Origin` z přesného seznamu: `https://mediturne.com`,
+     `https://www.mediturne.com` a pro místní zkoušení `http://localhost` a `http://127.0.0.1` (s libovolným
+     portem, např. `wrangler pages dev`). Jiné adresy, třeba náhledové nasazení na `*.pages.dev`, se povolí
+     volitelnou proměnnou `CONTACT_EXTRA_ORIGINS` (jen Preview): přesné originy oddělené čárkou, např.
+     `https://nahled.mediturne.pages.dev`. Tělo delší než 16 KB funkce odmítne, aniž by ho celé načetla,
+     a ze všech polí odstraní řídicí znaky (zpráva si nechá jen konce řádků a tabulátory).
    - Settings → Transactional emails → Retention rules: uchovávání záznamů 1 měsíc a náhledy neukládat.
      Obě hodnoty pak doplň do zásad ochrany osobních údajů.
    - Smlouva o zpracování (DPA) je součástí podmínek Brevo, archivuj si ji z jejich stránky Legal.
