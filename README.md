@@ -51,9 +51,8 @@ python tools/build_pages.py
 
 ## Nasazení na Cloudflare Pages
 
-1. Cloudflare → Workers & Pages → Create → Pages → propoj s Git repozitářem.
-   Root directory `NurseRosteringProject/Website`, build command prázdný, output directory `/`.
-   Build watch paths omez na `NurseRosteringProject/Website/*`, ať se web nenasazuje při každé změně aplikace.
+1. Cloudflare → Workers & Pages → Create → Pages → propoj s tímhle repozitářem (`mediturne-web`).
+   Production branch `main`, root directory `/`, build command prázdný, output directory `/`.
 2. Projekt → Custom domains → přidej `mediturne.com` a `www.mediturne.com`.
    DNS záznamy vytvoří Cloudflare sám, **nepřidávej CNAME ručně předem**.
 3. Přesměrování `www` → `mediturne.com` a `*.pages.dev` → vlastní doména nastav přes Redirect Rules
@@ -70,4 +69,8 @@ python tools/build_pages.py
 
 Web popisuje jen to, co aplikace podle kódu umí: noční služby lékařů, nic jiného.
 Nikdy netvrdit soulad se zákoníkem práce, mobilní aplikaci, export, notifikace ani plánování v prohlížeči
-(to je „chystáme“). Právní rešerše a návrhy smluv jsou mimo repozitář v `nurse-rostering/mediturne-brand/pravni/`.
+(to je „chystáme“). Právní rešerše a návrhy smluv do tohohle veřejného repozitáře nepatří.
+
+## Licence
+
+Zdrojový kód je veřejný ke čtení, není to open source. Podrobnosti v [LICENSE](LICENSE).

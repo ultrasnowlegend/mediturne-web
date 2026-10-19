@@ -1,0 +1,21 @@
+Copyright (c) 2026 Vojtěch Krejzar. Všechna práva vyhrazena.
+
+Tento repozitář je veřejný, aby bylo vidět, jak web mediturne.com funguje.
+Zveřejnění neuděluje žádnou licenci: kód, texty, logo, název mediturne
+a vizuální identitu nesmíte bez písemného svolení kopírovat, upravovat
+ani šířit.
+
+Výjimkou jsou písma ve složce fonts/ (Red Hat Display a Red Hat Text),
+která mají vlastní licenci SIL Open Font License 1.1 v souboru fonts/OFL.txt.
+
+---
+
+Copyright (c) 2026 Vojtěch Krejzar. All rights reserved.
+
+This repository is public so that anyone can see how mediturne.com works.
+Publishing it grants no licence: the code, texts, logo, the mediturne name
+and visual identity may not be copied, modified or distributed without
+written permission.
+
+The fonts in fonts/ (Red Hat Display and Red Hat Text) are an exception and
+are covered by the SIL Open Font License 1.1 in fonts/OFL.txt.
